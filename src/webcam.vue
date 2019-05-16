@@ -192,9 +192,9 @@ export default {
      */
     loadCamera(device) {
       let constraints = { video: { facingMode: "user" } };
-      if (device) {
-        constraints = { video: { deviceId: { exact: device } } };
-      }
+      // if (device) {
+      //   constraints = { video: { deviceId: { exact: device } } };
+      // }
 
       if (this.resolution) {
         constraints.video.height = this.resolution.height;
