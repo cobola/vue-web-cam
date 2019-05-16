@@ -1,10 +1,12 @@
 <template>
-  <video ref="video"
-         :width="width"
-         :height="height"
-         :src="source"
-         :autoplay="autoplay"
-         :playsinline="playsinline"/>
+  <video
+    ref="video"
+    :width="width"
+    :height="height"
+    :src="source"
+    :autoplay="autoplay"
+    :playsinline="playsinline"
+  />
 </template>
 
 <script>
@@ -189,7 +191,10 @@ export default {
      * load the Camera passed as index!
      */
     loadCamera(device) {
-      let constraints = { video: { deviceId: { exact: device } } };
+      let constraints = { video: { facingMode: "user" } };
+      if (device) {
+        constraints = { video: { deviceId: { exact: device } } };
+      }
 
       if (this.resolution) {
         constraints.video.height = this.resolution.height;
